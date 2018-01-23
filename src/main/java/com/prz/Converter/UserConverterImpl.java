@@ -1,0 +1,36 @@
+package com.prz.Converter;
+
+import com.prz.DataBase.User;
+import com.prz.Dto.UserDto;
+import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
+
+@Component
+public class UserConverterImpl implements UserConverter {
+
+    @Override
+    public User convertToEntity(UserDto userDto) {
+
+        return User.builder()
+                ._id(userDto.get_id())
+                .addPictures(Arrays.asList(StringToList.convertToArray(userDto.getAddPictures().get(0))))
+                .likeHasztags(Arrays.asList(StringToList.convertToArray(userDto.getLikeHasztagsNoHasz().get(0))))
+                .login(userDto.getLogin())
+                .password(userDto.getPassword())
+                .name(userDto.getName())
+                .build();
+    }
+
+    @Override
+    public UserDto convertToDto(User user) {
+        return UserDto.builder()
+                ._id(user.get_id())
+                .addPictures(user.getAddPictures())
+                .likeHasztags(user.getLikeHasztags())
+                .login(user.getLogin())
+                .name(user.getName())
+                .password(user.getPassword())
+                .build();
+    }
+}
