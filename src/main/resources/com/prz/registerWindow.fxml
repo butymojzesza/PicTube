@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.*?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@mainWindow.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prz.RegisterWindowController">
+   <children>
+      <GridPane alignment="CENTER" layoutX="113.0" layoutY="160.0">
+         <children>
+            <Label fx:id="loginLabel" text="%login" GridPane.halignment="RIGHT" />
+            <TextField fx:id="loginTextField" prefHeight="32.0" prefWidth="257.0" promptText="%podajLogin" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+            <Button fx:id="registerButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" text="%zarejestruj" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Label id="passwordLabel" fx:id="passwordLabel" text="%haslo" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <PasswordField fx:id="passwordTextField" alignment="CENTER" promptText="********" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="nameTextField" promptText="%podajNazwe" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label id="nazwaLabel" fx:id="nameLabel" alignment="CENTER" text="%nazwa" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <PasswordField fx:id="passwordConfirmTextField" alignment="CENTER" layoutX="114.0" layoutY="35.0" promptText="********" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label id="passwordLabel" fx:id="passwordConfirmLabel" layoutX="76.0" layoutY="39.0" text="%potwierdzHaslo" GridPane.rowIndex="2" />
+            <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#goBack" text="%wroc" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+   </children>
+   <effect>
+      <InnerShadow color="yellow" />
+   </effect>
+</Pane>

@@ -7,23 +7,24 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 @FXMLController
-public class registerController {
+public class LoginWindowController {
     @FXML
     private Label loginLabel;
     @FXML
     private Label passwordLabel;
     @FXML
-    private Label passwordConfirmLabel;
-    @FXML
-    private Label nameLabel;
-    @FXML
     private TextField loginTextField;
     @FXML
     private TextField passwordTextField;
     @FXML
-    private TextField passwordConfirmTextField;
+    private Button logInButton;
     @FXML
-    private TextField nameTextField;
-    @FXML
-    private Button registerButton;
+    private Button goBackButton;
+
+    public void goBack(){
+        loginTextField.clear();
+        passwordTextField.clear();
+        PictubeApplication.showView(MainWindowView.class);
+    }
+
 }

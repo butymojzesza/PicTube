@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @FXMLController
-public class mainWindowController {
+public class MainWindowController {
     @FXML
     private Label helloLabel;
 
@@ -20,6 +20,12 @@ public class mainWindowController {
     @FXML
     private Button helloButton;
 
+    @FXML
+    private Button buttonOpenRegisterView;
+
+    @FXML
+    private Button buttonOpenLoginView;
+
     @Autowired
     private DatabaseManager databaseManager = DatabaseManager.getInstance();
 
@@ -27,5 +33,14 @@ public class mainWindowController {
         helloLabel.setText(nameField.getText());
         databaseManager.loadInitialData();
         databaseManager.printTestData();
+    }
+
+    public void openRegisterView (ActionEvent actionEvent){
+        PictubeApplication.showView(RegisterWindowView.class);
+    }
+
+    public void openLoginView(){
+        PictubeApplication.showView(LoginWindowView.class);
+
     }
 }
