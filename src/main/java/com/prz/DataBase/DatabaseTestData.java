@@ -22,8 +22,8 @@ public class DatabaseTestData {
         this.pictureTable.deleteAll();
         this.commentTable.deleteAll();
 
-        this.userTable.save(User.builder().login("JanKowalski").password("12345").build());
-        this.userTable.save(User.builder().login("AdamMichnik").password("54321").build());
+        this.userTable.save(User.builder().login("JanKowalski").password("12345").ifAdmin(true).build());
+        this.userTable.save(User.builder().login("AdamMichnik").password("54321").ifAdmin(false).build());
 
         this.pictureTable.save(Picture.builder().name("test_picture_1").url("https://www.wykop.pl/cdn/c3201142/comment_uOtVeTtARj3kk5AS5x6wRryjjvLEuyxk.jpg").build());
         this.pictureTable.save(Picture.builder().name("test_picture_2").url("https://www.wykop.pl/cdn/c3201142/comment_e5IdIMpr6GkABZ3iOW3rLRxDGz8scG74.jpg").build());
@@ -71,7 +71,7 @@ public class DatabaseTestData {
         }
 
         System.out.println();
-        System.out.println("Users");
+        System.out.println("Comments");
         System.out.println("---------------------------------------");
         for (Comment comment : this.commentTable.findAll()) {
             System.out.println(comment);

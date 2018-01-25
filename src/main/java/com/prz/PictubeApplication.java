@@ -1,7 +1,9 @@
 package com.prz;
 
 import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Locale;
@@ -17,6 +19,8 @@ public class PictubeApplication extends AbstractJavaFxApplicationSupport {
     @Override
     public void start(Stage stage) throws Exception {
         super.start(stage);
+        stage.setTitle("PicTube");
+        stage.setResizable(false);
     }
 
 }

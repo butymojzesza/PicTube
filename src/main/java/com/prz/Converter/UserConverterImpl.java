@@ -19,6 +19,7 @@ public class UserConverterImpl implements UserConverter {
                 .login(userDto.getLogin())
                 .password(userDto.getPassword())
                 .name(userDto.getName())
+                .ifAdmin(userDto.isIfAdmin())
                 .build();
     }
 
@@ -31,6 +32,7 @@ public class UserConverterImpl implements UserConverter {
                 .login(user.getLogin())
                 .name(user.getName())
                 .password(user.getPassword())
+                .ifAdmin(user.isIfAdmin())
                 .build();
     }
 }

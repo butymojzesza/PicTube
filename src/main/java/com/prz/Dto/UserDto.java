@@ -1,9 +1,7 @@
 package com.prz.Dto;
 
 import com.prz.HaszManager;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.ElementCollection;
 import java.util.ArrayList;
@@ -12,6 +10,8 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDto extends HaszManager {
 
 
@@ -20,6 +20,7 @@ public class UserDto extends HaszManager {
     private String login;
     private String password;
     private String name;
+    private boolean ifAdmin;
     @ElementCollection
     private List<String> addPictures = new ArrayList<String>();
     @ElementCollection
