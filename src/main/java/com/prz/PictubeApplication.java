@@ -14,13 +14,13 @@ public class PictubeApplication extends AbstractJavaFxApplicationSupport {
 
     public static void main(String[] args){
         Locale.setDefault(new Locale("en", "EN"));
-        launchApp(PictubeApplication.class, MainWindowView.class, args);
-    }
-    @Override
-    public void start(Stage stage) throws Exception {
-        super.start(stage);
-        stage.setTitle("PicTube");
-        stage.setResizable(false);
+
+        launchApp(PictubeApplication.class,MainWindowView.class, args);
     }
 
+    @Override
+    public void start(Stage stage) throws Exception {
+
+        super.start(stage);
+    }
 }

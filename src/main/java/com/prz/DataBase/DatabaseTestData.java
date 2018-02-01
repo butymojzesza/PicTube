@@ -22,16 +22,16 @@ public class DatabaseTestData {
         this.pictureTable.deleteAll();
         this.commentTable.deleteAll();
 
-        this.userTable.save(User.builder().login("JanKowalski").password("12345").ifAdmin(true).build());
+        this.userTable.save(User.builder().login("JanKowalski").name("Janko Kowal").password("12345").ifAdmin(true).build());
         this.userTable.save(User.builder().login("AdamMichnik").password("54321").ifAdmin(false).build());
 
-        this.pictureTable.save(Picture.builder().name("test_picture_1").url("https://www.wykop.pl/cdn/c3201142/comment_uOtVeTtARj3kk5AS5x6wRryjjvLEuyxk.jpg").build());
-        this.pictureTable.save(Picture.builder().name("test_picture_2").url("https://www.wykop.pl/cdn/c3201142/comment_e5IdIMpr6GkABZ3iOW3rLRxDGz8scG74.jpg").build());
-        this.pictureTable.save(Picture.builder().name("test_picture_3").url("https://www.wykop.pl/cdn/c3201142/comment_mrbBFyqzZE6XHrhSLJ4oXgXCnyo2GPoF.jpg").build());
-        this.pictureTable.save(Picture.builder().name("test_picture_4").url("https://www.wykop.pl/cdn/c3201142/comment_OjWHfcHZisATkUqJ8TVlEbGgjLqudX20.jpg").build());
-        this.pictureTable.save(Picture.builder().name("test_picture_5").url("https://www.wykop.pl/cdn/c3201142/comment_EPcYXaNXFrmGt9cEX2gzITrhtEmVwzhp.jpg").build());
-        this.pictureTable.save(Picture.builder().name("test_picture_6").url("https://www.wykop.pl/cdn/c3201142/comment_ZX0Jzp0NWXDBO6TGr5SeQJG3SrTJKMws.jpg").build());
-        this.pictureTable.save(Picture.builder().name("test_picture_7").url("https://www.wykop.pl/cdn/c3201142/comment_csq3X0DAPR628xvox3wLBNCWlaJQFPHO.jpg").build());
+        this.pictureTable.save(Picture.builder().name("test_picture_1").url("/images/wat.png").build());
+        this.pictureTable.save(Picture.builder().name("test_picture_2").url("/images/password.jpg").build());
+        this.pictureTable.save(Picture.builder().name("test_picture_3").url("/images/resolution.jpg").build());
+        this.pictureTable.save(Picture.builder().name("test_picture_4").url("/images/ie.jpg").build());
+        this.pictureTable.save(Picture.builder().name("test_picture_5").url("/images/polack.jpg").build());
+        this.pictureTable.save(Picture.builder().name("test_picture_6").url("/images/cookiz.jpg").build());
+        this.pictureTable.save(Picture.builder().name("test_picture_7").url("/images/remember.jpg").build());
 
 
 

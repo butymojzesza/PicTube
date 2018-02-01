@@ -19,15 +19,15 @@ public class User extends HaszManager {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long _id;
+    private Long _id;
 
     private String login;
     private String password;
     private String name;
     private boolean ifAdmin;
-    @ElementCollection
-    private List<String> addPictures = new ArrayList<String>();
-    @ElementCollection
-    private List<String> likeHasztags = new ArrayList<String>();
+//    @ElementCollection
+//    private List<String> addPictures = new ArrayList<String>();
+//    @ElementCollection
+//    private List<String> likeHasztags = new ArrayList<String>();
 
 }

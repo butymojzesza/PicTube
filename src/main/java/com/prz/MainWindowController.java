@@ -2,23 +2,13 @@ package com.prz;
 
 import com.prz.DataBase.DatabaseManager;
 import de.felixroske.jfxsupport.FXMLController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.MenuItem;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @FXMLController
 public class MainWindowController {
-    @FXML
-    private Label helloLabel;
-
-    @FXML
-    private TextField nameField;
-
-    @FXML
-    private Button helloButton;
 
     @FXML
     private Button buttonOpenRegisterView;
@@ -26,21 +16,47 @@ public class MainWindowController {
     @FXML
     private Button buttonOpenLoginView;
 
+    @FXML
+    private MenuItem menuItem1;
+
+    @FXML
+    private MenuItem menuItem2;
+
+    @FXML
+    private MenuItem menuItem3;
+
     @Autowired
     private DatabaseManager databaseManager = DatabaseManager.getInstance();
 
-    public void setHelloText(ActionEvent actionEvent) {
-        helloLabel.setText(nameField.getText());
+    private String skin1 = getClass().getResource("skin1.css").toExternalForm();
+    private String skin2 = getClass().getResource("skin2.css").toExternalForm();
+    private String skin3 = getClass().getResource("skin3.css").toExternalForm();
+
+    public void initialize(){
+        PictubeApplication.getStage().setTitle("PicTube");
+        PictubeApplication.getStage().setResizable(false);
+//      PictubeApplication.getStage().initStyle(StageStyle.UNDECORATED);
         databaseManager.loadInitialData();
         databaseManager.printTestData();
     }
+    public void openRegisterView (){ PictubeApplication.showView(RegisterWindowView.class); }
 
-    public void openRegisterView (ActionEvent actionEvent){
-        PictubeApplication.showView(RegisterWindowView.class);
+    public void openLoginView(){ PictubeApplication.showView(LoginWindowView.class); }
+
+    public void menuItem1(){
+        PictubeApplication.getScene().getStylesheets().clear();
+        PictubeApplication.setUserAgentStylesheet(null);
+        PictubeApplication.getScene().getStylesheets().add(skin1);
+    }
+    public void menuItem2(){
+        PictubeApplication.getScene().getStylesheets().clear();
+        PictubeApplication.setUserAgentStylesheet(null);
+        PictubeApplication.getScene().getStylesheets().add(skin2);
+    }
+    public void menuItem3(){
+        PictubeApplication.getScene().getStylesheets().clear();
+        PictubeApplication.setUserAgentStylesheet(null);
+        PictubeApplication.getScene().getStylesheets().add(skin3);
     }
 
-    public void openLoginView(){
-        PictubeApplication.showView(LoginWindowView.class);
-
-    }
 }

@@ -2,20 +2,46 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prz.MainWindowController">
-    <children>
-        <Label fx:id="helloLabel" layoutX="99.0" layoutY="109.0" prefHeight="34.0" prefWidth="394.0">
-            <font>
-                <Font size="26.0" />
-            </font>
-        </Label>
-        <TextField fx:id="nameField" layoutX="99.0" layoutY="162.0" prefHeight="26.0" prefWidth="234.0" />
-        <Button fx:id="helloButton" layoutX="347.0" layoutY="162.0" mnemonicParsing="false" onAction="#setHelloText" text="%go" />
-      <Button fx:id="buttonOpenLoginView" layoutX="190.0" layoutY="268.0" mnemonicParsing="false" onAction="#openLoginView" text="%logowanie" />
-      <Button fx:id="buttonOpenRegisterView" layoutX="421.0" layoutY="262.0" mnemonicParsing="false" onAction="#openRegisterView" text="%rejestracja" />
-    </children>
-</Pane>
+<BorderPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prz.MainWindowController">
+   <center>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+      <children>
+      <Label fx:id="helloLabel" layoutX="99.0" layoutY="109.0" prefHeight="34.0" prefWidth="394.0">
+      <font>
+      <Font size="26.0" />
+      </font>
+      </Label>
+      <Button fx:id="buttonOpenLoginView" layoutX="256.0" layoutY="256.0" mnemonicParsing="false" onAction="#openLoginView" text="%logowanie" />
+      <Button fx:id="buttonOpenRegisterView" layoutX="493.0" layoutY="256.0" mnemonicParsing="false" onAction="#openRegisterView" text="%rejestracja" />
+      </children>
+      </Pane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="%skorka1">
+            <items>
+              <MenuItem id="menuItem1" mnemonicParsing="false" onAction="#menuItem1" text="1" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%skorka2">
+            <items>
+              <MenuItem id="menuItem2" mnemonicParsing="false" onAction="#menuItem2" text="2" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%skorka3">
+            <items>
+              <MenuItem id="menuItem3" mnemonicParsing="false" onAction="#menuItem3" text="3" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

@@ -1,0 +1,6 @@
+.root*{
+    -fx-font-size: 11pt;
+    -fx-font-family: "Calibri";
+    -fx-base: blue;
+    -fx-background: rgb(225, 228, 203);
+}

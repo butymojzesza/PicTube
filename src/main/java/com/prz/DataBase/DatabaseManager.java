@@ -3,9 +3,13 @@ package com.prz.DataBase;
 import com.prz.Converter.CommentConverter;
 import com.prz.Converter.PictureConverter;
 import com.prz.Converter.UserConverter;
+import com.prz.Dto.PictureDto;
 import com.prz.Dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class DatabaseManager {
@@ -54,6 +58,36 @@ public class DatabaseManager {
             isAdmin = false;
         }
         return isAdmin;
+    }
+
+    public void insertUser (UserDto userDto) {
+        this.userRepository.save(this.userConverter.convertToEntity(userDto));
+    }
+
+    public void insertPicture ( PictureDto pictureDto){
+        this.pictureRepository.save(this.pictureConverter.convertToEntity(pictureDto));
+    }
+
+    public List<PictureDto> getListOfPictures(){
+        List<PictureDto> listOfPicturesDto = new ArrayList<>();
+        List<Picture> listOfPictures = (List<Picture>) this.pictureRepository.findAll();
+        for (Picture pic : listOfPictures) {
+            listOfPicturesDto.add(this.pictureConverter.convertToDto(pic));
+        }
+        return listOfPicturesDto;
+    }
+
+    public List<String> getListOfPicturesUrl(List<PictureDto> pictureDtos){
+        List<String> listOfPicturesUrl = new ArrayList<>();
+        for (PictureDto pictureUrl : pictureDtos){
+            listOfPicturesUrl.add(pictureUrl.getUrl());
+        }
+        return listOfPicturesUrl;
+    }
+
+    public String getUserName (String login){
+        String userName = userRepository.findUserByLogin(login).getName();
+        return userName;
     }
 
 }

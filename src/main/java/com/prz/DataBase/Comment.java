@@ -28,15 +28,15 @@ public class Comment {
     private String _idUser;
     private String date;
 
-//    @Override
-//    public String toString() {
-//        return String.format("ID: %s, User: %s, Text: %s, Data: %s",
-//                this._id, this._idUser, this.text, this.date);
-//    }
+    @Override
+    public String toString() {
+        return String.format("ID: %s, User: %s, Text: %s, Data: %s",
+                this._id, this._idUser, this.text, this.date);
+    }
 
-//    private String getInitDate() {
-//        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-//        Date date = new Date();
-//        return dateFormat.format(date);
-//    }
+    private String getInitDate() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
 }
