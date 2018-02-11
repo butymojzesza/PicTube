@@ -23,8 +23,8 @@ public class Picture extends HaszManager {
     private String name;
     private String url;
     @ElementCollection
-    private List<String> categorys = new ArrayList<String>();
+    private List<String> categorys = new ArrayList<>();
     @ElementCollection
-    private List<String> hasztags = new ArrayList<String>();
+    private List<String> hasztags = new ArrayList<>();
 
 }

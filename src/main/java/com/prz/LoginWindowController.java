@@ -19,10 +19,6 @@ import java.util.Locale;
 @FXMLController
 public class LoginWindowController {
     @FXML
-    private Label loginLabel;
-    @FXML
-    private Label passwordLabel;
-    @FXML
     private TextField loginTextField;
     @FXML
     private TextField passwordTextField;
@@ -62,12 +58,14 @@ public class LoginWindowController {
         } else {
             userDto = new UserDto();
             this.userDto = userDto.builder().login(loginTextField.getText()).password(passwordTextField.getText()).build();
-            if (databaseManager.isAdmin(userDto)) {
+            try {
+                UserDto dbuser = this.databaseManager.login(userDto);
                 loginTextField.clear();
                 passwordTextField.clear();
                 PictubeApplication.showView(UserWindowView.class);
-            } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                userWindowController.setUserNameLabel(dbuser.getName());
+            } catch (NullPointerException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
                 if (Locale.getDefault().getLanguage() == "en") {
                     alert.setTitle("Error");
                     alert.setHeaderText("Wrong data");
@@ -81,5 +79,4 @@ public class LoginWindowController {
             }
         }
     }
-
 }

@@ -5,21 +5,37 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prz.LoginWindowController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prz.LoginWindowController">
     <children>
         <GridPane alignment="CENTER" layoutX="176.0" layoutY="192.0">
             <children>
                 <Label fx:id="loginLabel" text="%login" GridPane.halignment="RIGHT" />
                 <TextField fx:id="loginTextField" prefHeight="32.0" prefWidth="211.0" promptText="%podajLogin" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
-                <Button fx:id="logInButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#logIn" text="%zaloguj" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#goBack" text="%wroc" GridPane.rowIndex="2" />
                 <Label id="passwordLabel" fx:id="passwordLabel" text="%haslo" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                 <PasswordField fx:id="passwordTextField" alignment="CENTER" promptText="*******" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                <Button fx:id="logInButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#logIn" text="%zaloguj" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/glyphicons/png/glyphicons-387-log-in.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+                <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#goBack" text="%wroc" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/glyphicons/png/glyphicons-21-home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             </children>
          <columnConstraints>
             <ColumnConstraints />

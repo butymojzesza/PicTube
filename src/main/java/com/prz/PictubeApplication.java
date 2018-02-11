@@ -11,10 +11,8 @@ import java.util.Locale;
 @SpringBootApplication
 public class PictubeApplication extends AbstractJavaFxApplicationSupport {
 
-
     public static void main(String[] args){
         Locale.setDefault(new Locale("en", "EN"));
-
         launchApp(PictubeApplication.class,MainWindowView.class, args);
     }
 

@@ -3,6 +3,9 @@ package com.prz.DataBase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class DatabaseTestData {
 
@@ -23,26 +26,34 @@ public class DatabaseTestData {
         this.commentTable.deleteAll();
 
         this.userTable.save(User.builder().login("JanKowalski").name("Janko Kowal").password("12345").ifAdmin(true).build());
-        this.userTable.save(User.builder().login("AdamMichnik").password("54321").ifAdmin(false).build());
+        this.userTable.save(User.builder().login("AdamMichnik").name("AdaśkoM").password("54321").ifAdmin(false).build());
+        List<String> kat1 = new ArrayList<>();
+        kat1.add("#wat");
+        kat1.add("#buda");
+        List<String> kat2 = new ArrayList<>();
+        kat2.add("#pass");
+        kat2.add("#ie");
+        List<String> kat3 = new ArrayList<>();
+        kat3.add("#cuba");
+        List<String> kat4 = new ArrayList<>();
+        kat4.add("#ie");
+        List<String> kat5 = new ArrayList<>();
+        kat5.add("#nosacz");
 
-        this.pictureTable.save(Picture.builder().name("test_picture_1").url("/images/wat.png").build());
-        this.pictureTable.save(Picture.builder().name("test_picture_2").url("/images/password.jpg").build());
-        this.pictureTable.save(Picture.builder().name("test_picture_3").url("/images/resolution.jpg").build());
-        this.pictureTable.save(Picture.builder().name("test_picture_4").url("/images/ie.jpg").build());
-        this.pictureTable.save(Picture.builder().name("test_picture_5").url("/images/polack.jpg").build());
+        this.pictureTable.save(Picture.builder().name("test_picture_1").url("/images/wat.png").hasztags(kat1).build());
+        this.pictureTable.save(Picture.builder().name("test_picture_2").url("/images/password.jpg").hasztags(kat2).build());
+        this.pictureTable.save(Picture.builder().name("test_picture_3").url("/images/resolution.jpg").hasztags(kat3).build());
+        this.pictureTable.save(Picture.builder().name("test_picture_4").url("/images/ie.jpg").hasztags(kat4).build());
+        this.pictureTable.save(Picture.builder().name("test_picture_5").url("/images/polack.jpg").hasztags(kat5).build());
         this.pictureTable.save(Picture.builder().name("test_picture_6").url("/images/cookiz.jpg").build());
         this.pictureTable.save(Picture.builder().name("test_picture_7").url("/images/remember.jpg").build());
 
-
-
-
-
         Picture p = this.pictureTable.findPictureByName("test_picture_1");
 
-//        p.getCategorys().add("Kategoria1");
-//        p.getCategorys().add("Kategoria2");
-//        p.getCategorys().add("Kategoria3");
-//        this.pictureTable.save(p);
+//          p.getCategorys().add("Kategoria1");
+////        p.getCategorys().add("Kategoria2");
+////        p.getCategorys().add("Kategoria3");
+////        this.pictureTable.save(p);
 
 //        String pictureId = pictureTable.findPictureByName("test_picture_1").get_id();
 //        String userId = userTable.findUserByLogin("JanKowalski").get_id();

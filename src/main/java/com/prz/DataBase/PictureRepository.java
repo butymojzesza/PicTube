@@ -11,7 +11,10 @@ public interface PictureRepository extends CrudRepository<Picture, Long> {
 
     Picture findPictureByName(String name);
 
-    List<Picture> findAllByHasztagsContains(String hasztag);
+    List<Picture> findPictureByHasztags (String hasztag);
+
+    List<Picture> findByCategorys(String category);
 
     Picture save(Picture picture);
+
 }

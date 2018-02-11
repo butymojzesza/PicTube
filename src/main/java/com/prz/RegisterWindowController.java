@@ -8,8 +8,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 @FXMLController
@@ -34,21 +37,28 @@ public class RegisterWindowController {
     private Button registerButton;
     @FXML
     private Button goBackButton;
+    @FXML
+    public Pane registerPane;
+
     @Autowired
     DatabaseManager databaseManager = DatabaseManager.getInstance();
 
     private UserDto userDto;
 
     public void goBack() {
+        if ((loginTextField.getText().isEmpty()) || (passwordTextField.getText().isEmpty()) || (passwordConfirmTextField.getText().isEmpty()) || (nameTextField.getText().isEmpty())) {
+            PictubeApplication.showView(MainWindowView.class);
+        }
+        else{
         loginTextField.clear();
         passwordTextField.clear();
         passwordConfirmTextField.clear();
         nameTextField.clear();
         PictubeApplication.showView(MainWindowView.class);
-    }
+    } }
 
     public void insertNewUser() {
-        if ((loginTextField.getText().isEmpty()) || (passwordTextField.getText().isEmpty()) || (passwordConfirmTextField.getText().isEmpty()) || nameTextField.getText().isEmpty()) {
+        if ((loginTextField.getText().isEmpty()) || (passwordTextField.getText().isEmpty()) || (passwordConfirmTextField.getText().isEmpty()) || (nameTextField.getText().isEmpty())) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             if (Locale.getDefault().getLanguage() == "en") {
                 alert.setTitle("Missing data");
@@ -61,31 +71,33 @@ public class RegisterWindowController {
 
             }
         } else {
-        try {
+            List<String> hasztag = new ArrayList<String>();
+            hasztag.add("elo");
             userDto = new UserDto();
             userDto.setLogin(loginTextField.getText());
             userDto.setPassword(passwordTextField.getText());
             userDto.setName(nameTextField.getText());
-            userDto.setIfAdmin(false);
-            this.databaseManager.insertUser(userDto);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            if (Locale.getDefault().getLanguage() == "en") {
-                alert.setTitle("Registration successful");
-                alert.setHeaderText("Thank you for creating account");
-                alert.show();
-            } else {
-                alert.setTitle("Rejestracja zakończona sukcesem!");
-                alert.setHeaderText("Dziękujęmy za utworzenie konta");
-                alert.show();
+            userDto.setLikeHasztags(hasztag);
+           try {
+               this.databaseManager.insertUser(userDto);
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+               if (Locale.getDefault().getLanguage() == "en") {
+                   alert.setTitle("Registration successful");
+                   alert.setHeaderText("Thank you for creating account");
+                   alert.show();
+               } else {
+                   alert.setTitle("Rejestracja zakończona sukcesem!");
+                   alert.setHeaderText("Dziękujęmy za utworzenie konta");
+                   alert.show();
 
-            }
-            loginTextField.clear();
-            passwordTextField.clear();
-            passwordConfirmTextField.clear();
-            nameTextField.clear();
-        }
-        catch(Exception ex){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+               }
+               loginTextField.clear();
+               passwordTextField.clear();
+               passwordConfirmTextField.clear();
+               nameTextField.clear();
+           }
+           catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
             if (Locale.getDefault().getLanguage() == "en") {
                 alert.setTitle("Error during registration");
                 alert.setHeaderText("Something went wrong :(");
@@ -96,7 +108,7 @@ public class RegisterWindowController {
                 alert.show();
 
             }
-        }
+           }
     }
     }
 }

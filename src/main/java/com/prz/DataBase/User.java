@@ -25,9 +25,7 @@ public class User extends HaszManager {
     private String password;
     private String name;
     private boolean ifAdmin;
-//    @ElementCollection
-//    private List<String> addPictures = new ArrayList<String>();
-//    @ElementCollection
-//    private List<String> likeHasztags = new ArrayList<String>();
+    @ElementCollection
+    private List<String> likeHasztags = new ArrayList<String>();
 
 }

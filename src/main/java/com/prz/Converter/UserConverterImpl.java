@@ -14,8 +14,7 @@ public class UserConverterImpl implements UserConverter {
 
         return User.builder()
                 ._id(userDto.get_id())
-//                .addPictures(Arrays.asList(StringToList.convertToArray(userDto.getAddPictures().get(0))))
-//                .likeHasztags(Arrays.asList(StringToList.convertToArray(userDto.getLikeHasztagsNoHasz().get(0))))
+                .likeHasztags(Arrays.asList(StringToList.convertToArray(userDto.getLikeHasztagsNoHasz().get(0))))
                 .login(userDto.getLogin())
                 .password(userDto.getPassword())
                 .name(userDto.getName())
@@ -27,8 +26,7 @@ public class UserConverterImpl implements UserConverter {
     public UserDto convertToDto(User user) {
         return UserDto.builder()
                 ._id(user.get_id())
-//                .addPictures(user.getAddPictures())
-//                .likeHasztags(user.getLikeHasztags())
+                .likeHasztags(user.getLikeHasztags())
                 .login(user.getLogin())
                 .name(user.getName())
                 .password(user.getPassword())

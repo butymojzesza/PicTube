@@ -11,6 +11,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     User findUserByLoginAndPassword(String login, String password);
 
-//    User findUserByLikeHasztagsContains(String hasztag);
+    User findUserByLikeHasztagsContains(String hasztag);
 
 }

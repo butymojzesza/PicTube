@@ -46,20 +46,6 @@ public class DatabaseManager {
     public void loadInitialData() {databaseTestData.loadInitialData();}
     public void printTestData() {databaseTestData.printTestData();}
 
-
-    public Boolean isAdmin(UserDto userDto) {
-        Boolean isAdmin = false;
-        Long idUser = this.userRepository.findUserByLoginAndPassword(userDto.getLogin(), userDto.getPassword()).get_id();
-        try {
-            if (this.userRepository.exists(idUser) && this.userRepository.findOne(idUser).isIfAdmin()) {
-                isAdmin = true;
-            }
-        } catch (Exception ex) {
-            isAdmin = false;
-        }
-        return isAdmin;
-    }
-
     public void insertUser (UserDto userDto) {
         this.userRepository.save(this.userConverter.convertToEntity(userDto));
     }
@@ -85,9 +71,47 @@ public class DatabaseManager {
         return listOfPicturesUrl;
     }
 
-    public String getUserName (String login){
-        String userName = userRepository.findUserByLogin(login).getName();
-        return userName;
+    public List<String> getListOfCategorys(List<PictureDto> pictureDtos){
+        List<String> listOfCategorys = new ArrayList<>();
+        for (PictureDto pictureUrl : pictureDtos){
+            listOfCategorys = (pictureUrl.getCategorys());
+        }
+        return listOfCategorys;
     }
 
+    public List<PictureDto> findByHasztag(String hasztag) {
+        List<PictureDto> result = new ArrayList<>();
+        for (Picture picture : this.pictureRepository.findPictureByHasztags(hasztag)) {
+            result.add(this.pictureConverter.convertToDto(picture));
+        }
+        return result;
+    }
+
+    public List<PictureDto> findByCategory(String category) {
+        List<PictureDto> result = new ArrayList<>();
+        for (Picture picture : this.pictureRepository.findByCategorys(category)) {
+            result.add(this.pictureConverter.convertToDto(picture));
+        }
+        return result;
+    }
+
+    public Boolean isAdmin(UserDto userDto) {
+        Boolean isAdmin = false;
+        Long idUser = this.userRepository.findUserByLoginAndPassword(userDto.getLogin(), userDto.getPassword()).get_id();
+        try {
+            if (this.userRepository.exists(idUser) && this.userRepository.findOne(idUser).isIfAdmin()) {
+                isAdmin = true;
+            }
+        } catch (Exception ex) {
+            isAdmin = false;
+        }
+        return isAdmin;
+    }
+
+    public UserDto login(UserDto loginUser) {
+        UserDto dbUser = this.userConverter.convertToDto(
+                this.userRepository.findUserByLoginAndPassword(loginUser.getLogin(), loginUser.getPassword())
+        );
+        return dbUser;
+    }
 }
