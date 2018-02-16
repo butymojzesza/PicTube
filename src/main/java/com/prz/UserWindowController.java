@@ -95,14 +95,13 @@ public class UserWindowController {
         List<String> pics1;
         ImageView userImage1;
         pics1 = this.listofPicWHasztagUrl;
-        try {
-            for(int i=0; i < pics1.size(); i++) {
-                Image image1 = new Image(getClass().getResource(pics1.get(i)).toExternalForm());
+        try { for(int i=0; i < pics1.size(); i++) {
+            Image image1 = new Image(getClass().getResource(pics1.get(i)).toExternalForm());
         userImage1 = new ImageView(image1);
         userImage1.setFitHeight(250.0);
         userImage1.setFitWidth(250.0);
         gpHasztagsPictures.add(userImage1, 0,i);}}
-        catch (IndexOutOfBoundsException e) {
+        catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             if (Locale.getDefault().getLanguage() == "en") {
                 alert.setTitle("Hashtag not found");

@@ -79,22 +79,7 @@ public class RegisterWindowController {
             userDto.setName(nameTextField.getText());
             userDto.setLikeHasztags(hasztag);
            try {
-               this.databaseManager.insertUser(userDto);
-               Alert alert = new Alert(Alert.AlertType.INFORMATION);
-               if (Locale.getDefault().getLanguage() == "en") {
-                   alert.setTitle("Registration successful");
-                   alert.setHeaderText("Thank you for creating account");
-                   alert.show();
-               } else {
-                   alert.setTitle("Rejestracja zakończona sukcesem!");
-                   alert.setHeaderText("Dziękujęmy za utworzenie konta");
-                   alert.show();
-
-               }
-               loginTextField.clear();
-               passwordTextField.clear();
-               passwordConfirmTextField.clear();
-               nameTextField.clear();
+               validator(passwordTextField.getText(),passwordConfirmTextField.getText());
            }
            catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -110,5 +95,41 @@ public class RegisterWindowController {
             }
            }
     }
+    }
+
+    public void validator(String password, String confirmPassword){
+        if(password.equals(confirmPassword))
+        {
+            this.databaseManager.insertUser(userDto);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            if (Locale.getDefault().getLanguage() == "en") {
+                alert.setTitle("Registration successful");
+                alert.setHeaderText("Thank you for creating account");
+                alert.show();
+            } else {
+                alert.setTitle("Rejestracja zakończona sukcesem!");
+                alert.setHeaderText("Dziękujęmy za utworzenie konta");
+                alert.show();
+
+            }
+            loginTextField.clear();
+            passwordTextField.clear();
+            passwordConfirmTextField.clear();
+            nameTextField.clear();
+        }
+        else {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            if (Locale.getDefault().getLanguage() == "en") {
+                alert.setTitle("Error during registration");
+                alert.setHeaderText("Password are not the same");
+                alert.show();
+            } else {
+                alert.setTitle("Błąd podczas rejestracji");
+                alert.setHeaderText("Hasła nie są takie same");
+                alert.show();
+
+            }
+        }
     }
 }

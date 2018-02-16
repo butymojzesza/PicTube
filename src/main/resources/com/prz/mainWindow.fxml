@@ -55,6 +55,15 @@
       </MenuBar>
    </top>
    <bottom>
-      <Text fx:id="temperature" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="29.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fx:id="yahooThings" layoutX="7.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="yahoothings" textAlignment="CENTER" />
+            <ImageView fx:id="yahooLogo" fitHeight="29.0" fitWidth="134.0" layoutX="506.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/yahoo_logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </bottom>
 </BorderPane>
