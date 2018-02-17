@@ -16,10 +16,11 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 @FXMLController
 public class MainWindowController {
-
+    private final static Logger logr = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
     @FXML
     private Button buttonOpenRegisterView;
 
@@ -50,15 +51,15 @@ public class MainWindowController {
     private String skin3 = getClass().getResource("skin3.css").toExternalForm();
 
 
-    public void initialize() throws IOException, SAXException, ParserConfigurationException {
+    public void initialize() throws SAXException, ParserConfigurationException {
         PictubeApplication.getStage().setTitle("PicTube");
         PictubeApplication.getStage().setResizable(false);
-//        PictubeApplication.getStage().getIcons().add(new Image("file:resources/images/favicon.png"));
+//      PictubeApplication.getStage().getIcons().add(new Image("file:resources/images/favicon.png"));
 //      PictubeApplication.getStage().initStyle(StageStyle.UNDECORATED);
         yahoo();
         databaseManager.loadInitialData();
         databaseManager.printTestData();
-
+        logr.info("Wczytano pomyślnie bazę");
     }
 
     public void openRegisterView() {
@@ -69,11 +70,16 @@ public class MainWindowController {
         PictubeApplication.showView(LoginWindowView.class);
     }
 
-    private void yahoo() throws ParserConfigurationException, IOException, SAXException {
+    private void yahoo() throws ParserConfigurationException, SAXException {
         String url = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20%3D%20523920&format=xml&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db =  dbf.newDocumentBuilder();
-        Document doc = db.parse(url);
+        Document doc = null;
+        try {
+            doc = db.parse(url);
+        } catch (IOException e) {
+            logr.severe("Zapytanie Yahoo nie działą" + e);
+        }
         NodeList meteo = doc.getElementsByTagName("yweather:condition");
         yahooThings.setText( meteo.item(0)
                 .getAttributes().getNamedItem("date").getNodeValue()+ ", " + meteo.item(0)

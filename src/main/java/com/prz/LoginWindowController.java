@@ -8,11 +8,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.Locale;
+import java.util.logging.Logger;
 
 @FXMLController
 public class LoginWindowController {
+    private final static Logger logr = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
     @FXML
     private TextField loginTextField;
     @FXML
@@ -40,6 +41,7 @@ public class LoginWindowController {
     public void logIn() {
         if ((loginTextField.getText().isEmpty()) || (passwordTextField.getText().isEmpty())) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            logr.info("Użytkownik podczas logowania nie wprowadził danych");
             if (Locale.getDefault().getLanguage() == "en") {
                 alert.setTitle("Missing data");
                 alert.setHeaderText("Please type login and password");
@@ -61,6 +63,7 @@ public class LoginWindowController {
                 userWindowController.setUserNameLabel(dbuser.getName());
             } catch (NullPointerException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
+                logr.severe("Błąd podczas logowania - niepoprawne dane");
                 if (Locale.getDefault().getLanguage() == "en") {
                     alert.setTitle("Error");
                     alert.setHeaderText("Wrong data");

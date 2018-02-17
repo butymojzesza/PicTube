@@ -15,10 +15,12 @@ import javafx.scene.layout.RowConstraints;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 
 @FXMLController
 public class UserWindowController {
+    private final static Logger logr = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
     @FXML
     private Button backButton;
     @FXML

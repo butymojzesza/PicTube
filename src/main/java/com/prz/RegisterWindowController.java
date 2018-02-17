@@ -14,9 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 @FXMLController
 public class RegisterWindowController {
+    private final static Logger logr = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
     @FXML
     private Label loginLabel;
     @FXML
@@ -46,20 +48,17 @@ public class RegisterWindowController {
     private UserDto userDto;
 
     public void goBack() {
-        if ((loginTextField.getText().isEmpty()) || (passwordTextField.getText().isEmpty()) || (passwordConfirmTextField.getText().isEmpty()) || (nameTextField.getText().isEmpty())) {
-            PictubeApplication.showView(MainWindowView.class);
-        }
-        else{
         loginTextField.clear();
         passwordTextField.clear();
         passwordConfirmTextField.clear();
         nameTextField.clear();
         PictubeApplication.showView(MainWindowView.class);
-    } }
+    }
 
     public void insertNewUser() {
         if ((loginTextField.getText().isEmpty()) || (passwordTextField.getText().isEmpty()) || (passwordConfirmTextField.getText().isEmpty()) || (nameTextField.getText().isEmpty())) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            logr.info("Nie wprowadzono wszystkich danych do formularza podczas rejestracji");
             if (Locale.getDefault().getLanguage() == "en") {
                 alert.setTitle("Missing data");
                 alert.setHeaderText("Please type all needed data");
@@ -83,6 +82,7 @@ public class RegisterWindowController {
            }
            catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
+                logr.warning("Błąd podczas rejestracji");
             if (Locale.getDefault().getLanguage() == "en") {
                 alert.setTitle("Error during registration");
                 alert.setHeaderText("Something went wrong :(");
@@ -118,8 +118,8 @@ public class RegisterWindowController {
             nameTextField.clear();
         }
         else {
-
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            logr.warning("Hasła podane podczas rejestracji nie są takie same");
             if (Locale.getDefault().getLanguage() == "en") {
                 alert.setTitle("Error during registration");
                 alert.setHeaderText("Password are not the same");
