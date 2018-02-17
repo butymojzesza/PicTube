@@ -7,59 +7,70 @@
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane fx:id="registerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prz.RegisterWindowController">
-   <children>
-      <GridPane alignment="CENTER" layoutX="113.0" layoutY="160.0">
+<BorderPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prz.RegisterWindowController">
+   <center>
+      <Pane fx:id="registerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0">
          <children>
-            <Label fx:id="loginLabel" text="%login" GridPane.halignment="RIGHT" />
-            <TextField fx:id="loginTextField" prefHeight="32.0" prefWidth="257.0" promptText="%podajLogin" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
-            <Label id="passwordLabel" fx:id="passwordLabel" text="%haslo" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-            <PasswordField fx:id="passwordTextField" alignment="CENTER" promptText="********" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Label id="passwordLabel" fx:id="passwordConfirmLabel" layoutX="76.0" layoutY="39.0" text="%potwierdzHaslo" GridPane.rowIndex="2" />
-            <PasswordField fx:id="passwordConfirmTextField" alignment="CENTER" layoutX="114.0" layoutY="35.0" promptText="********" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label id="nazwaLabel" fx:id="nameLabel" alignment="CENTER" text="%nazwa" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-            <TextField fx:id="nameTextField" promptText="%podajNazwe" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="%hasztagi" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-            <TextField id="likedHashtagsTextField" promptText="%podajHasztagi" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Button fx:id="registerButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#insertNewUser" text="%zarejestruj" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
-               <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/glyphicons/png/glyphicons-207-ok.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#goBack" text="%wroc" GridPane.halignment="CENTER" GridPane.rowIndex="6">
-               <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/glyphicons/png/glyphicons-21-home.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+            <ImageView fitHeight="480.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/register_background.jpg" />
+               </image>
+            </ImageView>
+            <GridPane alignment="CENTER" hgap="7.0" layoutX="42.0" layoutY="68.0" opacity="0.76" vgap="7.0">
+               <children>
+                  <Label fx:id="loginLabel" text="%login" GridPane.halignment="RIGHT" />
+                  <TextField fx:id="loginTextField" alignment="CENTER" prefHeight="32.0" prefWidth="257.0" promptText="%podajLogin" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                  <Label id="passwordLabel" fx:id="passwordLabel" text="%haslo" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <PasswordField fx:id="passwordTextField" alignment="CENTER" promptText="********" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Label id="passwordLabel" fx:id="passwordConfirmLabel" layoutX="76.0" layoutY="39.0" text="%potwierdzHaslo" GridPane.rowIndex="2" />
+                  <PasswordField fx:id="passwordConfirmTextField" alignment="CENTER" layoutX="114.0" layoutY="35.0" promptText="********" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label id="nazwaLabel" fx:id="nameLabel" alignment="CENTER" text="%nazwa" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                  <TextField fx:id="nameTextField" alignment="CENTER" promptText="%podajNazwe" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="%hasztagi" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                  <TextField id="likedHashtagsTextField" alignment="CENTER" promptText="%podajHasztagi" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Button fx:id="registerButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#insertNewUser" text="%zarejestruj" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/glyphicons/png/glyphicons-207-ok.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#goBack" text="%wroc" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/glyphicons/png/glyphicons-21-home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+               </rowConstraints>
+            </GridPane>
          </children>
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" />
-         </rowConstraints>
-      </GridPane>
-   </children>
-   <effect>
-      <InnerShadow color="yellow" />
-   </effect>
-</Pane>
+         <effect>
+            <InnerShadow color="yellow" />
+         </effect>
+      </Pane>
+   </center>
+</BorderPane>

@@ -5,13 +5,13 @@ import de.felixroske.jfxsupport.FXMLController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -53,6 +53,7 @@ public class MainWindowController {
     public void initialize() throws IOException, SAXException, ParserConfigurationException {
         PictubeApplication.getStage().setTitle("PicTube");
         PictubeApplication.getStage().setResizable(false);
+//        PictubeApplication.getStage().getIcons().add(new Image("file:resources/images/favicon.png"));
 //      PictubeApplication.getStage().initStyle(StageStyle.UNDECORATED);
         yahoo();
         databaseManager.loadInitialData();

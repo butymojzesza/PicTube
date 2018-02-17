@@ -1,5 +1,5 @@
 .root*{
-    -fx-font-size: 13pt;
+    -fx-font-size: 11pt;
     -fx-font-family: "Arial Black";
     -fx-base: green;
     -fx-background: rgb(225, 228, 203);
@@ -13,3 +13,7 @@
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
     -fx-text-fill: #395306;
 }
+
+/*.fancytext {*/
+    /*color: #CEF0D4; font-family: 'Rouge Script', cursive; font-size: 130px; font-weight: normal; line-height: 48px; margin: 0 0 50px; text-align: center;*/
+/*}*/

@@ -8,13 +8,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderPane" prefHeight="651.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prz.MainWindowController">
+<BorderPane fx:id="borderPane" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prz.MainWindowController">
    <center>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0">
          <children>
-      <Button fx:id="buttonOpenLoginView" layoutX="28.0" layoutY="201.0" mnemonicParsing="false" onAction="#openLoginView" prefHeight="152.0" prefWidth="209.0" text="%logowanie">
+            <ImageView fitHeight="480.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/main_background.jpg" />
+               </image>
+            </ImageView>
+      <Button fx:id="buttonOpenLoginView" layoutX="363.0" layoutY="136.0" mnemonicParsing="false" onAction="#openLoginView" prefHeight="112.0" prefWidth="207.0" text="%logowanie">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -22,7 +28,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-      <Button fx:id="buttonOpenRegisterView" layoutX="400.0" layoutY="201.0" mnemonicParsing="false" onAction="#openRegisterView" prefHeight="152.0" prefWidth="209.0" text="%rejestracja">
+      <Button fx:id="buttonOpenRegisterView" layoutX="364.0" layoutY="300.0" mnemonicParsing="false" onAction="#openRegisterView" prefHeight="113.0" prefWidth="205.0" text="%rejestracja">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -30,7 +36,10 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Text layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fancytext" text="PicTube - share pic, have fun" textAlignment="CENTER" wrappingWidth="640.0000059329905" />
+            <Text layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fancytext" text="PicTube - share pic, have fun" textAlignment="CENTER" wrappingWidth="640.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Text>
          </children></Pane>
    </center>
    <top>
@@ -40,16 +49,37 @@
             <items>
               <MenuItem id="menuItem1" mnemonicParsing="false" onAction="#menuItem1" text="1" />
             </items>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/glyphicons/png/glyphicons-2-leaf.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
           </Menu>
           <Menu mnemonicParsing="false" text="%skorka2">
             <items>
               <MenuItem id="menuItem2" mnemonicParsing="false" onAction="#menuItem2" text="2" />
             </items>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/glyphicons/png/glyphicons-6-car.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
           </Menu>
           <Menu mnemonicParsing="false" text="%skorka3">
             <items>
               <MenuItem id="menuItem3" mnemonicParsing="false" onAction="#menuItem3" text="3" />
             </items>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/glyphicons/png/glyphicons-23-fire.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
           </Menu>
         </menus>
       </MenuBar>

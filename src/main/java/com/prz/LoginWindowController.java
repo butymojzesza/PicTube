@@ -1,19 +1,14 @@
 package com.prz;
 
 import com.prz.DataBase.DatabaseManager;
-import com.prz.Dto.PictureDto;
 import com.prz.Dto.UserDto;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
 import java.util.Locale;
 
 @FXMLController
