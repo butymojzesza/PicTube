@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -40,8 +39,9 @@ public class RegisterWindowController {
     @FXML
     private Button goBackButton;
     @FXML
-    public Pane registerPane;
-
+    private Pane registerPane;
+    @FXML
+    private TextField likedHashtagTextField;
     @Autowired
     DatabaseManager databaseManager = DatabaseManager.getInstance();
 
@@ -52,6 +52,7 @@ public class RegisterWindowController {
         passwordTextField.clear();
         passwordConfirmTextField.clear();
         nameTextField.clear();
+        likedHashtagTextField.clear();
         PictubeApplication.showView(MainWindowView.class);
     }
 
@@ -71,7 +72,7 @@ public class RegisterWindowController {
             }
         } else {
             List<String> hasztag = new ArrayList<String>();
-            hasztag.add("elo");
+            hasztag.add(likedHashtagTextField.getText().replace("#",""));
             userDto = new UserDto();
             userDto.setLogin(loginTextField.getText());
             userDto.setPassword(passwordTextField.getText());
@@ -116,6 +117,7 @@ public class RegisterWindowController {
             passwordTextField.clear();
             passwordConfirmTextField.clear();
             nameTextField.clear();
+            likedHashtagTextField.clear();
         }
         else {
             Alert alert = new Alert(Alert.AlertType.ERROR);

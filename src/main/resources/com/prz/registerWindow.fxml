@@ -32,8 +32,8 @@
                   <PasswordField fx:id="passwordConfirmTextField" alignment="CENTER" layoutX="114.0" layoutY="35.0" promptText="********" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label id="nazwaLabel" fx:id="nameLabel" alignment="CENTER" text="%nazwa" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
                   <TextField fx:id="nameTextField" alignment="CENTER" promptText="%podajNazwe" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label text="%hasztagi" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-                  <TextField id="likedHashtagsTextField" alignment="CENTER" promptText="%podajHasztagi" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="%hasztag" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                  <TextField fx:id="likedHashtagTextField" alignment="CENTER" promptText="%podajHasztag" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Button fx:id="registerButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#insertNewUser" text="%zarejestruj" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">

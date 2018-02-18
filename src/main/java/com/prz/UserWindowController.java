@@ -4,14 +4,12 @@ import com.prz.DataBase.DatabaseManager;
 import com.prz.Dto.PictureDto;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.TilePane;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Locale;
@@ -35,18 +33,43 @@ public class UserWindowController {
     private TextField hashtagTextField;
     @FXML
     private GridPane gpSearchPicture;
+    @FXML
+    private ScrollPane scrollPaneForHashtagSearch;
+    @FXML
+    private ScrollPane scrollPaneForAllPictures;
+    @FXML
+    private TilePane tile;
+
     @Autowired
     DatabaseManager databaseManager = DatabaseManager.getInstance();
 
     private List<PictureDto> listofPicWHasztag;
     private List<String> listofPicWHasztagUrl;
+    private List<PictureDto> listofPictures;
+    private List<String> listofPicturesUrl;
+
+    public void initialize (){
+        this.listofPictures = this.databaseManager.getListOfPictures();
+        this.listofPicturesUrl = this.databaseManager.getListOfPicturesUrl(listofPictures);
+        ImageView imageView;
+        for (int i=0;i< listofPicturesUrl.size();i++) {
+            Image image = new Image(getClass().getResource(listofPicturesUrl.get(i)).toExternalForm());
+            imageView = new ImageView(image);
+            imageView.setFitWidth(200);
+            imageView.setFitHeight(200);
+            tile.getChildren().addAll(imageView);
+        }
+    }
 
     public void openProfileView(){
         PictubeApplication.showView(ProfileWindowView.class);
     }
 
     public void goBack() {
+        hashtagTextField.clear();
         userNameLabel.setText("");
+        scrollPaneForHashtagSearch.setVisible(false);
+        scrollPaneForAllPictures.setVisible(true);
         PictubeApplication.showView(MainWindowView.class);
     }
 
@@ -55,6 +78,8 @@ public class UserWindowController {
     }
 
     public void searchHashtag(){
+        scrollPaneForAllPictures.setVisible(false);
+        scrollPaneForHashtagSearch.setVisible(true);
         gpSearchPicture.getChildren().clear();
         RowConstraints rowConstraints = new RowConstraints(250.0);
         this.gpSearchPicture.getRowConstraints().add(rowConstraints);
