@@ -12,7 +12,6 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.TilePane;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Logger;
 
 
@@ -61,10 +60,6 @@ public class UserWindowController {
         }
     }
 
-    public void openProfileView(){
-        PictubeApplication.showView(ProfileWindowView.class);
-    }
-
     public void goBack() {
         hashtagTextField.clear();
         userNameLabel.setText("");
@@ -90,7 +85,7 @@ public class UserWindowController {
         ImageView userImage;
         int colIndex = 0; int rowIndex = 0;
         pics = this.listofPicWHasztagUrl;
-        try { for(int i=0; i <pics.size(); i++) {
+        for(int i=0; i < pics.size(); i++) {
             if (i % 2 == 0 && i != 0){
                 rowConstraints = new RowConstraints(250.0);
                 this.gpSearchPicture.getRowConstraints().add(rowConstraints);
@@ -104,20 +99,6 @@ public class UserWindowController {
             colIndex++;
             if (colIndex==2){
                 colIndex=0;
-            }
-        }
-        }
-        catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            if (Locale.getDefault().getLanguage() == "en") {
-                alert.setTitle("Hashtag not found");
-                alert.setHeaderText("Please try search other #");
-                alert.show();
-            } else {
-                alert.setTitle("Nie znaleziono hasztaga");
-                alert.setHeaderText("Spróbuj wyszukać innego #");
-                alert.show();
-
             }
         }
     }

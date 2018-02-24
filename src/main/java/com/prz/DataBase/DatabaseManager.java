@@ -39,9 +39,7 @@ public class DatabaseManager {
     private DatabaseTestData databaseTestData;
 
 
-    private DatabaseManager(){
-
-    }
+    private DatabaseManager(){ }
 
     public void loadInitialData() {databaseTestData.loadInitialData();}
     public void printTestData() {databaseTestData.printTestData();}

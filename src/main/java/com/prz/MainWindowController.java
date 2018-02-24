@@ -28,15 +28,6 @@ public class MainWindowController {
     private Button buttonOpenLoginView;
 
     @FXML
-    private MenuItem menuItem1;
-
-    @FXML
-    private MenuItem menuItem2;
-
-    @FXML
-    private MenuItem menuItem3;
-
-    @FXML
     private BorderPane borderPane;
 
     @FXML
@@ -54,11 +45,8 @@ public class MainWindowController {
     public void initialize() throws SAXException, ParserConfigurationException {
         PictubeApplication.getStage().setTitle("PicTube");
         PictubeApplication.getStage().setResizable(false);
-//      PictubeApplication.getStage().getIcons().add(new Image("file:resources/images/favicon.png"));
-//      PictubeApplication.getStage().initStyle(StageStyle.UNDECORATED);
         yahoo();
         databaseManager.loadInitialData();
-        databaseManager.printTestData();
         logr.info("Wczytano pomyślnie bazę");
     }
 
@@ -78,7 +66,7 @@ public class MainWindowController {
         try {
             doc = db.parse(url);
         } catch (IOException e) {
-            logr.severe("Zapytanie Yahoo nie działą" + e);
+            logr.severe("Zapytanie Yahoo nie działa" + e);
         }
         NodeList meteo = doc.getElementsByTagName("yweather:condition");
         yahooThings.setText( meteo.item(0)

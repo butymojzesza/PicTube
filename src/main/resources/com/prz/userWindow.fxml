@@ -38,15 +38,6 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Button fx:id="openProfileViewButton" layoutX="412.0" layoutY="420.0" mnemonicParsing="false" onAction="#openProfileView" text="%profil">
-               <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/glyphicons/png/glyphicons-138-cogwheels.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
             <TextField id="findHashtagText" fx:id="hashtagTextField" layoutX="347.0" layoutY="25.0" prefHeight="25.0" prefWidth="92.0" />
             <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="234.0" layoutY="28.0" text="%jakiego_hasztaga_szukasz" textAlignment="RIGHT" />
             <Button fx:id="searchButton" layoutX="483.0" layoutY="22.0" mnemonicParsing="false" onAction="#searchHashtag" text="%szukaj">
